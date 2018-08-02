@@ -1,0 +1,13 @@
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDCBB0Pioc1PwfFHHs6saZ1ahD-8M4cUnw",
+    authDomain: "rtm-abc-racing.firebaseapp.com",
+    databaseURL: "https://rtm-abc-racing.firebaseio.com",
+    projectId: "rtm-abc-racing",
+    storageBucket: "rtm-abc-racing.appspot.com",
+    messagingSenderId: "929116308279"
+  };
+  firebase.initializeApp(config);
+</script>
