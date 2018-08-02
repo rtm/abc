@@ -1,17 +1,18 @@
 import {BrowserModule} from "@angular/platform-browser";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+//import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {NgModule} from "@angular/core";
+import {ServiceWorkerModule} from "@angular/service-worker";
 
 // MATERIAL DESIGN
 // TODO: Consider a separate module only for Angular Material.
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatIconModule,
-  MatInputModule,
-  MatToolbarModule,
-  MatFormFieldModule,
-} from "@angular/material";
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
+import {MatTableModule} from "@angular/material/table";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 import {FlexLayoutModule} from "@angular/flex-layout";
 
@@ -27,8 +28,14 @@ import {environment} from "../environments/environment";
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    //    BrowserModule,
+    // If using SSR:
+    BrowserModule.withServerTransition({appId: "rtm-abc-racing"}),
+
+    // Replace this if animations are desired.
+    // You will also have to uncomment hammerjs in main.ts.
+    //    BrowserAnimationsModule,
+    NoopAnimationsModule,
 
     // ANGULARFIRE
     AngularFireModule.initializeApp(environment.firebase),
@@ -47,7 +54,9 @@ import {environment} from "../environments/environment";
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatTableModule,
     MatToolbarModule,
+    ServiceWorkerModule.register("/ngsw-worker.js", {enabled: environment.production}),
   ],
   providers: [],
   bootstrap: [AppComponent],
