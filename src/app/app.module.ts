@@ -24,6 +24,7 @@ import {AngularFireAuthModule} from "angularfire2/auth";
 
 import {AppComponent} from "./app.component";
 import {environment} from "../environments/environment";
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,6 +58,7 @@ import {environment} from "../environments/environment";
     MatTableModule,
     MatToolbarModule,
     ServiceWorkerModule.register("/ngsw-worker.js", {enabled: environment.production}),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

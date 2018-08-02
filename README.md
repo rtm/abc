@@ -45,6 +45,10 @@ but this has not been tested.
 
 1. The locked-version of `@angular-devkit/schematics` in `package.json` is to deal with a bug in `ng new pwa`. See https://github.com/angular/angular-cli/issues/11663 for more information.
 
+## Attributions
+
+Icons in `src/manifest.json` (`src/assets/icons`) from https://www.iconfinder.com/icons/44797/car_icon.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

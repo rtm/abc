@@ -1,6 +1,6 @@
 {
-  "name": "rtm-abc-racing",
-  "short_name": "rtm-abc-racing",
+  "name": "ABC Racing",
+  "short_name": "ABC",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -38,8 +38,18 @@
       "type": "image/png"
     },
     {
+      "src": "assets/icons/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
       "src": "assets/icons/icon-384x384.png",
       "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-400x400.png",
+      "sizes": "400x400",
       "type": "image/png"
     },
     {

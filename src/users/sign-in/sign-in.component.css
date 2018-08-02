@@ -1,0 +1,12 @@
+/* users/sign-in/sign-in.component.css: styling for sign-in page */
+
+#firebase-ui {
+  background: transparent;
+  width: 80%;
+}
+
+main {
+  background-size: cover;
+  align-items: center;
+  justify-content: space-around;
+}
