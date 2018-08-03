@@ -2,8 +2,17 @@
 //
 // TS logic for sidenav.
 
-import {Component, OnInit} from "@angular/core";
+import {Component, ElementRef, HostListener, OnInit, QueryList, ViewChildren} from "@angular/core";
 import {Router} from "@angular/router";
+import {MatListItem} from "@angular/material/list";
+
+import {
+  FocusableOption,
+  FocusKeyManager,
+  FocusMonitor,
+  FocusTrapFactory,
+  ListKeyManager,
+} from "@angular/cdk/a11y";
 
 import {Subscription, Observable} from "rxjs";
 import {map} from "rxjs/operators";
@@ -23,12 +32,39 @@ export class SidenavComponent implements OnInit {
   // Used to hide the menu item for in-app purchases.
   public user$: Observable<firebase.User>;
   public name$: Observable<string>;
+  public firstName$: Observable<string>;
 
-  constructor(private router: Router, private userService: UserService) {}
+  private focusKeyManager: FocusKeyManager<FocusableOption>;
+
+  @ViewChildren("a") viewChildren: QueryList<MatListItem>;
+
+  @HostListener("window:keyup", ["$event"])
+  keyFunc(event) {
+    if (event.code !== "Tab") {
+      this.focusKeyManager.onKeydown(event);
+      //      this.focusMonitor.focusVia(this.focusKeyManager.activeItem.nativeElement, "keyboard");
+    } else {
+      // 'artificially' updates the active element in case the user uses Tab instead of arrows
+      this.focusKeyManager.onKeydown(event);
+      this.focusKeyManager.setNextItemActive();
+    }
+  }
+
+  constructor(
+    private readonly focusTrap: FocusTrapFactory,
+    private readonly focusMonitor: FocusMonitor,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.user$ = this.userService.user$;
     this.name$ = this.user$.pipe(map(user => user.displayName));
+
+    // This is a horrible way to get someone's name. Don't do this.
+    this.firstName$ = this.name$.pipe(map(name => name.split(/\s/)[0]));
+
+    //    this.focusKeyManager = new FocusKeyManager(this.viewChildren).withWrap();
   }
 
   // This will trigger an emission on the AngularFire auth observable,

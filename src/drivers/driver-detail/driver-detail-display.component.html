@@ -1,0 +1,23 @@
+<!-- driverss/driver-detail/driver-detail-display.component.html: template for display of driver details. -->
+
+<main>
+
+  <header>
+    <h1>{{driver.name}}</h1>
+  </header>
+
+  <section>
+
+    <div>
+      {{driver.bio}}
+    </div>
+
+    <h2>
+      Photos and videos
+    </h2>
+
+    <media-collection [media]="media"></media-collection>
+
+  </section>
+
+</main>

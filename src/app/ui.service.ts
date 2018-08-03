@@ -12,9 +12,9 @@ export class UiService {
   // Expose an observable to drive opening of the sidenav.
   // This is listened to by the app component, and set by the hamburger component.
   public openSidenav$ = new Subject<boolean>();
+  public isMobile = false;
 
   private sidenavOpened = true;
-  private isMobile = false;
   private activeMediaQuery = "";
 
   constructor(private readonly observableMedia: ObservableMedia, private readonly router: Router) {

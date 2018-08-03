@@ -1,14 +1,24 @@
 <!-- app.component.html: template for top-level component, with side nav. -->
 
-<mat-sidenav-container (backdropClick)="uiService.maybeClose()">
+<mat-toolbar color="primary">
+  <span>
+    <span [ngStyle.xs]="{'display': 'inline'}" style="display: none; top: 6px; position: relative;">
+      <mat-icon (click)="onMenu()">menu</mat-icon>
+    </span>
+    ABC Racing
+  </span>
+  <img src="assets/icons/icon-72x72.png">
+</mat-toolbar>
+
+<mat-sidenav-container (backdropClick)="onBackdropClick()">
 
   <mat-sidenav
     #sidenav
-    mode="side"
+    [mode]="isMobile ? 'over' : 'side'"
     [opened]="true"
     disableClose="true"
     app-background-color light
-    (click)="uiService.maybeClose()"
+    (click)="onSidenavClick()"
     (openedChange)="onSidenavOpenedChange($event)"
     >
     <app-sidenav></app-sidenav>

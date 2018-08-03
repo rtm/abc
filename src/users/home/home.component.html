@@ -1,12 +1,23 @@
-<!-- users/home/home.component.html: template for home screen. -->
+<!-- users/home/home.component.html: template for home page. -->
 
 <main>
 
-  <h1>Home</h1>
+  <header>
+    <h1>Home</h1>
+  </header>
 
-  <h2>Your bookmarks</h2>
+  <section>
 
-  <!-- BOOKMARKS -->
-  <bookmark-list [bookmarks]="bookmarks$ | async"></bookmark-list>
+    <div>
+      Welcome to the ABC Racing Company website!
+      This is the place to get the latest information about your favorite drivers,
+      and upcoming events.
+    </div>
+
+    <h2>Your bookmarks</h2>
+
+    <!-- BOOKMARKS -->
+    <bookmark-list [bookmarks]="bookmarks$ | async"></bookmark-list>
+  </section>
 
 </main>

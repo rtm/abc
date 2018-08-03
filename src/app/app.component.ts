@@ -18,6 +18,10 @@ export class AppComponent {
 
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
+  public get isMobile() {
+    return this.uiService.isMobile;
+  }
+
   constructor(router: Router, userService: UserService, private uiService: UiService) {
     // Should this be in the constructor or in ngOnInit?
     userService.user$.subscribe(user => router.navigate(["/users", user ? "home" : "sign-in"]));
@@ -32,5 +36,21 @@ export class AppComponent {
 
   public onSidenavOpenedChange(b: boolean) {
     this.uiService.setSidenavOpened(b);
+  }
+
+  ////////////////////////////////////////////////////////////////
+  // EVENT HANDLERS
+
+  // Menu icon was clicked.
+  public onMenu() {
+    this.uiService.openSidenav(true);
+  }
+
+  public onBackdropClick() {
+    return this.uiService.maybeClose();
+  }
+
+  public onSidenavClick() {
+    return this.uiService.maybeClose();
   }
 }

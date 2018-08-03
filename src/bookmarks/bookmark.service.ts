@@ -45,6 +45,11 @@ export class BookmarkService {
     return this.query(ref => ref.where("type", "==", type).where("id", "==", id));
   }
 
+  // Add a bookmark.
+  add(uid: string, type: BookmarkType, id: string) {
+    return this.getCollection().add({uid, type, id} as Bookmark);
+  }
+
   ////////////////////////////////////////////////////////////////
   // PRIVATE
 

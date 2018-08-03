@@ -7,7 +7,7 @@
 @import "~firebaseui/dist/firebaseui.css";
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: Lato, Roboto, sans-serif;
   margin: 0;
   font-size: 14px;
   height: 100%;
@@ -32,18 +32,9 @@ html {
 /* The `main` element is used for all full-screen elements, and nothing else. */
 main {
   height: 100vh;
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
   flex-direction: column;
-}
-
-main header {
-  font-weight: normal;
-  flex-shrink: 0;
-}
-
-/* The part of a page between the header and the bottom. */
-main section {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -54,6 +45,15 @@ main section {
   padding-left: 16px;
   padding-right: 16px;
   position: relative;               /* Some things are positioned absolutely vis-a-vis the section. */
+}
+
+main header {
+  font-weight: normal;
+  flex-shrink: 0;
+}
+
+/* The part of a page between the header and the bottom. */
+main section {
 }
 
 /* The `footer` element is used for (optional) stuff at the bottom of each full-screen display. */
@@ -104,30 +104,11 @@ header > div:first-child           /* TODO: obsolete this */
   z-index: 1000;             /* Avoid getting hidden by offline icons etc. */
 }
 
-/* MATERIAL DESIGN */
-.mat-card-actions button, [mat-button] {
-  text-transform: uppercase;
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-.mat-card > .mat-card-actions:last-child {
-  margin-bottom: -8px !important;
-}
-
-/* Default is 8px, which insets the text too much IMHO. */
-project-card .mat-card-header-text,
-unit-card .mat-card-header-text,
-room-card .mat-card-header-text {
-  margin: 0;
-}
-
 /* Scrolling */
 ::-webkit-scrollbar {
   width: 6px;  /* remove scrollbar space */
   /* background: transparent;  /\* optional: just make scrollbar invisible *\/ */
 }
-
 
 ::-webkit-scrollbar-thumb {
   background-color: grey;

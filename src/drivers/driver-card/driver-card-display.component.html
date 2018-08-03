@@ -1,0 +1,12 @@
+<!-- drivers/driver-card/driver-card-display.component.html: template for cards showing driver. -->
+
+<mat-card (click)="onSelect()">
+
+  <mat-card-title-group>
+    <mat-card-title>{{driver.name}}</mat-card-title>
+    <img mat-card-sm-image [attr.src]="src | async">
+  </mat-card-title-group>
+
+  <mat-card-content>{{shortBio}}...</mat-card-content>
+
+</mat-card>

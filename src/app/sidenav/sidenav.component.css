@@ -1,3 +1,7 @@
 mat-icon::after {
   content: ' ';
 }
+
+.active-link {
+  font-weight: bold;
+}

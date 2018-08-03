@@ -29,21 +29,56 @@ import {environment} from "../environments/environment";
 import {AppRoutingModule} from ".//app-routing.module";
 
 // COMPONENTS
+import {BookmarkCardComponent} from "../bookmarks/bookmark-card/bookmark-card.component";
 import {BookmarkListComponent} from "../bookmarks/bookmark-list/bookmark-list.component";
+
+import {DriverCardDisplayComponent} from "../drivers/driver-card/driver-card-display.component";
+import {DriverCardDocumentComponent} from "../drivers/driver-card/driver-card-document.component";
+import {DriverCardCollectionComponent} from "../drivers/driver-card/driver-card-collection.component";
+
+import {DriverDetailDisplayComponent} from "../drivers/driver-detail/driver-detail-display.component";
+import {DriverDetailDocumentComponent} from "../drivers/driver-detail/driver-detail-document.component";
+import {DriverDetailScreenComponent} from "../drivers/driver-detail/driver-detail-screen.component";
+
+import {DriverListComponent} from "../drivers/driver-list/driver-list.component";
+
+import {EventListComponent} from "../events/event-list/event-list.component";
+
 import {HomeComponent} from "../users/home/home.component";
+
+import {MediaCardComponent} from "../media/media-card/media-card.component";
+import {MediaCollectionComponent} from "../media/media-collection/media-collection.component";
+
 import {SignInComponent} from "../users/sign-in/sign-in.component";
 import {SidenavComponent} from "./sidenav/sidenav.component";
 
 // PROVIDERS
-import {UserService} from "../users/user.service";
 import {BookmarkService} from "../bookmarks/bookmark.service";
+import {DriverService} from "../drivers/driver.service";
+import {EventService} from "../events/event.service";
 import {UiService} from "./ui.service";
+import {UserService} from "../users/user.service";
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    BookmarkCardComponent,
     BookmarkListComponent,
+
+    DriverCardDisplayComponent,
+    DriverCardDocumentComponent,
+    DriverCardCollectionComponent,
+
+    DriverDetailScreenComponent,
+    DriverDetailDocumentComponent,
+    DriverDetailDisplayComponent,
+    DriverListComponent,
+
+    EventListComponent,
     HomeComponent,
+    MediaCardComponent,
+    MediaCollectionComponent,
     SidenavComponent,
     SignInComponent,
   ],
@@ -83,7 +118,7 @@ import {UiService} from "./ui.service";
 
     AppRoutingModule,
   ],
-  providers: [BookmarkService, UiService, UserService],
+  providers: [BookmarkService, DriverService, EventService, UiService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

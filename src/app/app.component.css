@@ -1,0 +1,6 @@
+/* Space out the things on the toolbar at the top of the screen. */
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -41,6 +41,14 @@ The deployment of the SSR version to Firebase hosting requires special gymnastic
 The contents of `dist/server` should be deployable to any web server and function correctly,
 but this has not been tested.
 
+## Accessibility
+
+Accessibility is not implemented fully in this version of the app.
+A more complete implementation would implement keyboard navigation as provided for in the CDK `a11y` library.
+In addition, items should be assigned "roles" and `aria-*` attributes.
+
+Bits and pieces of work-in-progress may be found in `app/sidenav`.
+
 ## Miscellaneous
 
 1. The locked-version of `@angular-devkit/schematics` in `package.json` is to deal with a bug in `ng new pwa`. See https://github.com/angular/angular-cli/issues/11663 for more information.

@@ -1,0 +1,4 @@
+# This apparently set CORS on Google Cloud Storage, where we keep photos.
+# How do you set CORS, if at all, on the server on which Firebase functions run?
+
+gsutil cors set cors.json gs://rtm-abc-racing.appspot.com
