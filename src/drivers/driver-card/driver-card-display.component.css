@@ -1,3 +1,11 @@
+mat-card {
+  cursor: pointer;
+  width: 240px;
+  margin-right: 16px;
+}
+
 img {
   object-fit: contain;
+  max-height: 240px;
+  max-width: 240px;
 }

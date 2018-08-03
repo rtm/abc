@@ -13,24 +13,29 @@ const routes: Routes = [
   {
     path: "users",
     children: [
-      {path: "sign-in", component: SignInComponent},
-      {path: "home", component: HomeComponent},
+      {path: "sign-in", component: SignInComponent, data: {screenName: "sign in"}},
+      {path: "home", component: HomeComponent, data: {screenName: "home"}},
     ],
   },
   {
     path: "events",
-    children: [{path: "list", component: EventListComponent}],
+    children: [{path: "list", component: EventListComponent, data: {screenName: "event list"}}],
   },
   {
     path: "drivers",
     children: [
-      {path: "list", component: DriverListComponent},
-      {path: "detail/:id", component: DriverDetailScreenComponent},
+      {path: "list", component: DriverListComponent, data: {screenName: "driver list"}},
+      {
+        path: "detail/:id",
+        component: DriverDetailScreenComponent,
+        data: {screenName: "driver detail"},
+      },
     ],
   },
   {
     path: "help",
     component: HelpComponent,
+    data: {screenName: "help"},
   },
 ];
 

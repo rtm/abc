@@ -28,10 +28,14 @@ export class DriverDetailDocumentComponent implements OnInit {
 
   public driver$: Driver$;
 
-  constructor(private readonly driverService: DriverService) {}
+  constructor(
+    private readonly driverService: DriverService,
+    private readonly mediaService: MediaService
+  ) {}
 
   ngOnInit() {
     this.driver$ = this.driverDocument.valueChanges();
-    this.media = MediaService.getByDriver(this.driverDocument);
+
+    this.media = this.mediaService.getByDriver(this.driverDocument.ref.id);
   }
 }

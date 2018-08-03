@@ -3,10 +3,10 @@
 // Logic for displaying "media" as a card.
 
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from "@angular/core";
-import {AngularFireStorage} from "angularfire2/storage";
 import {Observable} from "rxjs";
 
 import {Media} from "../media.type";
+import {MediaService} from "../media.service";
 
 @Component({
   selector: "media-card",
@@ -18,14 +18,14 @@ export class MediaCardComponent implements OnChanges {
 
   @Output() click = new EventEmitter();
 
-  public src: Observable<string>;
-  public shortDescription: string;
+  public src$: Observable<string>;
 
-  constructor(private readonly angularFireStorage: AngularFireStorage) {}
+  constructor(private readonly mediaService: MediaService) {}
 
   ngOnChanges(simpleChanges: SimpleChanges) {
-    this.src = this.angularFireStorage.ref("foobar").getDownloadURL();
-    this.shortDescription = this.media.description.slice(0, 100).replace(/\s\S+$/, "");
+    const downloadUrls = this.mediaService.getDownloadUrls(this.media.assets);
+
+    this.src$ = downloadUrls.small || downloadUrls.big;
   }
 
   ////////////////////////////////////////////////////////////////

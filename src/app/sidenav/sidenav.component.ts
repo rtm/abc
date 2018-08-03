@@ -38,17 +38,17 @@ export class SidenavComponent implements OnInit {
 
   @ViewChildren("a") viewChildren: QueryList<MatListItem>;
 
-  @HostListener("window:keyup", ["$event"])
-  keyFunc(event) {
-    if (event.code !== "Tab") {
-      this.focusKeyManager.onKeydown(event);
-      //      this.focusMonitor.focusVia(this.focusKeyManager.activeItem.nativeElement, "keyboard");
-    } else {
-      // 'artificially' updates the active element in case the user uses Tab instead of arrows
-      this.focusKeyManager.onKeydown(event);
-      this.focusKeyManager.setNextItemActive();
-    }
-  }
+  // @HostListener("window:keyup", ["$event"])
+  // keyFunc(event) {
+  //   if (event.code !== "Tab") {
+  //     this.focusKeyManager.onKeydown(event);
+  //     //      this.focusMonitor.focusVia(this.focusKeyManager.activeItem.nativeElement, "keyboard");
+  //   } else {
+  //     // 'artificially' updates the active element in case the user uses Tab instead of arrows
+  //     this.focusKeyManager.onKeydown(event);
+  //     this.focusKeyManager.setNextItemActive();
+  //   }
+  // }
 
   constructor(
     private readonly focusTrap: FocusTrapFactory,
@@ -59,11 +59,6 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit() {
     this.user$ = this.userService.user$;
-    this.name$ = this.user$.pipe(map(user => user.displayName));
-
-    // This is a horrible way to get someone's name. Don't do this.
-    this.firstName$ = this.name$.pipe(map(name => name.split(/\s/)[0]));
-
     //    this.focusKeyManager = new FocusKeyManager(this.viewChildren).withWrap();
   }
 
@@ -71,12 +66,5 @@ export class SidenavComponent implements OnInit {
   // which will take the user to the login page.
   public onSignOut() {
     return this.userService.signOut();
-  }
-
-  // This option is mainly for the visitor who is viewing a shared report.
-  // It is displayed only when NOT signed-in.
-  // We'll probably also give him the option to sign-up from the shared report page.
-  public onSignUp() {
-    return this.router.navigate(["/users", "sign-in"]);
   }
 }

@@ -12,7 +12,11 @@ import {Media, MediaCollection} from "../media.type";
 
 @Component({
   selector: "media-collection",
-  template: `<media-card *ngFor="let media of media$ | async" [media]="media"></media-card>`,
+  template: `
+<div style="display: flex; ">
+  <media-card *ngFor="let media of media$ | async" [media]="media">
+  </media-card>
+</div>`,
 })
 export class MediaCollectionComponent implements OnInit {
   @Input("media") mediaCollection: MediaCollection;

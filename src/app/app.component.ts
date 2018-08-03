@@ -7,6 +7,7 @@ import {filter} from "rxjs/operators";
 
 import {UserService} from "../users/user.service";
 import {UiService} from "./ui.service";
+import {UpdateService} from "./update.service";
 
 @Component({
   selector: "app-root",
@@ -22,7 +23,12 @@ export class AppComponent {
     return this.uiService.isMobile;
   }
 
-  constructor(router: Router, userService: UserService, private uiService: UiService) {
+  constructor(
+    router: Router,
+    userService: UserService,
+    private readonly uiService: UiService,
+    readonly updateService: UpdateService
+  ) {
     // Should this be in the constructor or in ngOnInit?
     userService.user$.subscribe(user => router.navigate(["/users", user ? "home" : "sign-in"]));
   }
@@ -36,6 +42,10 @@ export class AppComponent {
 
   public onSidenavOpenedChange(b: boolean) {
     this.uiService.setSidenavOpened(b);
+  }
+
+  public getScreenName(outlet) {
+    return outlet.activatedRouteData["screenName"] || "home";
   }
 
   ////////////////////////////////////////////////////////////////

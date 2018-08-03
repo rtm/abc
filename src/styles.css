@@ -206,3 +206,23 @@ markdown p { margin-top: 0; }
 
 [app-foreground-color] { color: #03a9f4; }
 [app-background-color] { background-color: #03a9f4; }
+
+/* SPACING */
+[spaced] > *::before {
+  white-space: pre;
+  display: block;
+}
+
+[spaced] > :not(:first-child)::before {
+  content: ' ';
+}
+
+[spaced][before] > :first-child::before {
+  content: ' ';
+}
+
+[spaced]          > *::before { line-height: 1;    }
+[spaced][loose]   > *::before { line-height: 1.5;  }
+[spaced][x-loose] > *::before { line-height: 2;    }
+[spaced][tight]   > *::before { line-height: 0.5;  }
+[spaced][x-tight] > *::before { line-height: 0.25; }

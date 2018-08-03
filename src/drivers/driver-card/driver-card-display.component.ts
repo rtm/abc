@@ -3,10 +3,11 @@
 // Logic for displaying a driver as a card.
 
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from "@angular/core";
-import {AngularFireStorage} from "angularfire2/storage";
 import {Observable} from "rxjs";
+import {switchMap} from "rxjs/operators";
 
 import {Driver} from "../driver.type";
+import {MediaService} from "../../media/media.service";
 
 @Component({
   selector: "driver-card-display",
@@ -19,14 +20,21 @@ export class DriverCardDisplayComponent implements OnChanges {
   @Output() select = new EventEmitter();
   @Output() bookmark = new EventEmitter();
 
-  public src: Observable<string>;
+  public src$: Observable<string>;
   public shortBio: string;
 
-  constructor(private readonly angularFireStorage: AngularFireStorage) {}
+  constructor(private readonly mediaService: MediaService) {}
 
   ngOnChanges(simpleChanges: SimpleChanges) {
-    this.src = this.angularFireStorage.ref(this.driver.photos.small).getDownloadURL();
-    this.shortBio = this.driver.bio.slice(0, 100).replace(/\s\S+$/, "");
+    this.src$ = this.mediaService
+      .getById(this.driver.profileMedia)
+      .valueChanges()
+      .pipe(
+        switchMap(media => {
+          const downloadUrls = this.mediaService.getDownloadUrls(media.assets);
+          return downloadUrls.small || downloadUrls.big;
+        })
+      );
   }
 
   ////////////////////////////////////////////////////////////////

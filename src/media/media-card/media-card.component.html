@@ -3,11 +3,9 @@
 <mat-card (click)="onClick()">
 
   <mat-card-header>
-    <mat-card-title>{{media.name}}</mat-card-title>
-    <mat-card-subtitle>{{media.date | date}}</mat-card-subtitle>
-    <img mat-card-sm-image [attr.src]="src | async">
+    <img mat-card-image [attr.src]="src$ | async">
   </mat-card-header>
 
-  <mat-card-content>{{shortDescription}}</mat-card-content>
+  <mat-card-content>{{media.description}}</mat-card-content>
 
 </mat-card>

@@ -13,6 +13,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {MatListModule} from "@angular/material/list";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from "@angular/material/toolbar";
 
@@ -57,7 +58,9 @@ import {SidenavComponent} from "./sidenav/sidenav.component";
 import {BookmarkService} from "../bookmarks/bookmark.service";
 import {DriverService} from "../drivers/driver.service";
 import {EventService} from "../events/event.service";
+import {MediaService} from "../media/media.service";
 import {UiService} from "./ui.service";
+import {UpdateService} from "./update.service";
 import {UserService} from "../users/user.service";
 
 @NgModule({
@@ -116,12 +119,21 @@ import {UserService} from "../users/user.service";
     MatTableModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatSnackBarModule,
 
     ServiceWorkerModule.register("/ngsw-worker.js", {enabled: environment.production}),
 
     AppRoutingModule,
   ],
-  providers: [BookmarkService, DriverService, EventService, UiService, UserService],
+  providers: [
+    BookmarkService,
+    DriverService,
+    EventService,
+    MediaService,
+    UiService,
+    UpdateService,
+    UserService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

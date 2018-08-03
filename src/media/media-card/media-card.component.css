@@ -1,1 +1,12 @@
-/* nothing here now */
+/* TODO: make this common with other cards, such as driver card */
+mat-card {
+  cursor: pointer;
+  width: 240px;
+  margin-right: 16px;
+}
+
+img {
+  object-fit: contain;
+  max-height: 240px;
+  max-width: 240px;
+}

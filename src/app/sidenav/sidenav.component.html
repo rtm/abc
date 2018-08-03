@@ -18,12 +18,12 @@
       <span>About</span>
     </a>
 
-    <a mat-list-item (click)="onSignOut()" [class.disabled]="!(user$ | async)">
+    <a mat-list-item (click)="onSignOut()" *ngIf="user$ | async">
       <span>Sign out</span>
     </a>
 
-    <a mat-list-item (click)="signUp()" *ngIf="!(user$ | async)" cdkFocusRegionEnd>
-      <span>Sign up</span>
+    <a mat-list-item *ngIf="!(user$ | async)" [routerLink]="['/users', 'sign-in']" cdkFocusRegionEnd routerLinkActive="active-link">
+      <span>Sign in</span>
     </a>
   </div>
 </mat-nav-list>
