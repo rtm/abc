@@ -1,10 +1,16 @@
 # ABC Racing Company website
 
+This repo holds a simple proof-of-concept of a responsive website for a fictional racing company,
+implementing a Progressive Web App using Firebase and Angular.
+
+More information may be found within the app itself under the "Help" menu item.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` (or `npm run start`) for a dev server. Navigate to `http://localhost:4200/`.
+The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -12,21 +18,22 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/browser` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Unit tests are not available. When they are, Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+End-to-end tests are not available.
+When they are, run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Service workers
 
 This app implements service workers.
 However, please note that `ng serve` (and thus also `npm run start` do not support service workers.
-We recomment the `http-server` package from npm.
+We recommend the `http-server` package from npm.
 See https://angular.io/guide/service-worker-getting-started for more information.
 
 ## Server-side rendering

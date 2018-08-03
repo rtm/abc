@@ -1,31 +1,35 @@
 <!-- app.component.html: template for top-level component, with side nav. -->
 
-<mat-toolbar color="primary">
-  <span>
-    <span [ngStyle.xs]="{'display': 'inline'}" style="display: none; top: 6px; position: relative;">
-      <mat-icon (click)="onMenu()">menu</mat-icon>
+<div style="display: flex; flex-direction: column; height: 100vh; ">
+
+  <mat-toolbar color="primary" style="flex-shrink: 0; ">
+    <span>
+      <span [ngStyle.xs]="{'display': 'inline'}" style="display: none; top: 6px; position: relative;">
+        <mat-icon (click)="onMenu()">menu</mat-icon>
+      </span>
+      ABC Racing
     </span>
-    ABC Racing
-  </span>
-  <img src="assets/icons/icon-72x72.png">
-</mat-toolbar>
+    <img src="assets/icons/icon-72x72.png">
+  </mat-toolbar>
 
-<mat-sidenav-container (backdropClick)="onBackdropClick()">
+  <mat-sidenav-container (backdropClick)="onBackdropClick()" style="flex-grow: 1; ">
 
-  <mat-sidenav
-    #sidenav
-    [mode]="isMobile ? 'over' : 'side'"
-    [opened]="true"
-    disableClose="true"
-    app-background-color light
-    (click)="onSidenavClick()"
-    (openedChange)="onSidenavOpenedChange($event)"
-    >
-    <app-sidenav></app-sidenav>
-  </mat-sidenav>
+    <mat-sidenav
+      #sidenav
+      [mode]="isMobile ? 'over' : 'side'"
+      [opened]="true"
+      disableClose="true"
+      app-background-color light
+      (click)="onSidenavClick()"
+      (openedChange)="onSidenavOpenedChange($event)"
+      >
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
 
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
 
-</mat-sidenav-container>
+  </mat-sidenav-container>
+
+</div>

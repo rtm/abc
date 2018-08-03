@@ -44,6 +44,7 @@ import {DriverListComponent} from "../drivers/driver-list/driver-list.component"
 
 import {EventListComponent} from "../events/event-list/event-list.component";
 
+import {HelpComponent} from "../help/help.component";
 import {HomeComponent} from "../users/home/home.component";
 
 import {MediaCardComponent} from "../media/media-card/media-card.component";
@@ -76,6 +77,8 @@ import {UserService} from "../users/user.service";
     DriverListComponent,
 
     EventListComponent,
+    HelpComponent,
+
     HomeComponent,
     MediaCardComponent,
     MediaCollectionComponent,

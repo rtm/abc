@@ -1,43 +1,29 @@
 <!-- app/sidenav/sidenav.component.html: contents for sidenav -->
 
-<div style="height: 100vh; " flex vertical justify>
+<mat-nav-list app-background-color-light>
+  <div flex vertical>
+    <a mat-list-item [routerLink]="['/users', 'home']" routerLinkActive="active-link" cdkFocusRegionStart>
+      <span>Home</span>
+    </a>
 
-  <!-- <div style="color: white; background-color: blue; bottom-border: 1px black solid; padding: 12px; "> -->
+    <a mat-list-item [routerLink]="['/drivers', 'list']" routerLinkActive="active-link">
+      <span>Drivers</span>
+    </a>
 
-  <!--   <div bold text>Hello, {{firstName$ | async}}.</div> -->
+    <a mat-list-item [routerLink]="['/events', 'list']" routerLinkActive="active-link">
+      <span>Events</span>
+    </a>
 
-  <!--   <\!-- <ng-template #notLoggedIn> -\-> -->
-  <!--   <\!--   You are not logged in. -\-> -->
-  <!--   <\!-- </ng-template> -\-> -->
+    <a mat-list-item [routerLink]="['/help']" routerLinkActive="active-link">
+      <span>About</span>
+    </a>
 
-  <!-- </div> -->
+    <a mat-list-item (click)="onSignOut()" [class.disabled]="!(user$ | async)">
+      <span>Sign out</span>
+    </a>
 
-  <mat-nav-list app-background-color-light>
-    <div flex vertical>
-      <a mat-list-item [routerLink]="['/users', 'home']" routerLinkActive="active-link" cdkFocusRegionStart>
-        <span>Home</span>
-      </a>
-
-      <a mat-list-item [routerLink]="['/drivers', 'list']" routerLinkActive="active-link">
-        <span>Drivers</span>
-      </a>
-
-      <a mat-list-item [routerLink]="['/events', 'list']" routerLinkActive="active-link">
-        <span>Events</span>
-      </a>
-
-      <a mat-list-item (click)="help() routerLinkActive="active-link">
-        <span>About</span>
-      </a>
-
-      <a mat-list-item (click)="onSignOut()" [class.disabled]="!(user$ | async)">
-        <span>Sign out</span>
-      </a>
-
-      <a mat-list-item (click)="signUp()" *ngIf="!(user$ | async)" cdkFocusRegionEnd>
-        <span>Sign up</span>
-      </a>
-    </div>
-  </mat-nav-list>
-
-</div>
+    <a mat-list-item (click)="signUp()" *ngIf="!(user$ | async)" cdkFocusRegionEnd>
+      <span>Sign up</span>
+    </a>
+  </div>
+</mat-nav-list>

@@ -17,7 +17,9 @@
       <p>
         This application uses Firebase, a well-known Backend-as-a-Service (BaaS) system.
         Firebase provides hosting, authentication, S3-like storage, and database-in-the-cloud services.
-        Its architecture supports completely real-time data updates.
+        Its architecture supports completely real-time data updates
+        as well as offline behavior for the database.
+        We have not yet implemented security rules for the database and storage.
       </p>
 
       <p>
@@ -27,50 +29,52 @@
       </p>
 
       <p>
+        The UI toolkit used is Angular Material.
+        Together with `@angular/flex-layout`, this provides us with much of the responnsiveness in the app.
+      </p>
+
+      <p>
         This application does not at present support server-side rendering.
         Server-side rendering is less important as a means of speeding up load time
         than it might otherwise be due to the use of Service Workers.
         However, the basic logic for SSR is present, and in fact simply
         running the relevant npm scripts, and then deploying the contents of the
-        <tt>dist/server</tt> directory to a web server ought to work properly.
+        <span style="font-family: monospace; ">dist/server</span> directory to a web server ought to work properly.
       </p>
 
       <p>
-        More information can be found in the repo's <a target="_blank" href="
+        The assets used by the app are taken from Firebase Firestore and Storage.
+        At the moment, there is neither any way to upload data,
+        nor any way for the user to enter it.
+        Test data and fixtures must be entered or uploaded directly in the Firebase console.
+      </p>
 
-## Running unit tests
+      <p>
+        The application is not yet fully optimized in terms of speed.
+        The design calls for different sizes of graphic assets to be available,
+        but automatic transcoding is not yet implemented.
+      </p>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+      <p>
+        Features which are still missing include (1) bookmarking and (2) display of information about events.
+      </p>
 
-## Running end-to-end tests
+      <p>
+        Unit tests and e2e tests are not yet implemented.
+        They will be implemented with relative ease using Angular's testing frameworks.
+      </p>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+      <p>
+        Accessibility is not implemented fully in this version of the app.
+        A more complete implementation would implement keyboard navigation as provided for in the CDK `a11y` library.
+        In addition, items should be assigned "roles" and `aria-*` attributes.
+        Bits and pieces of work-in-progress may be found in `app/sidenav`.
+      </p>
 
+      <p>
+        More information can be found in the repo's <a target="_blank" href="https://github.com/rtm/abc/blob/master/README.md">README</a>.
+      </p>
 
-The deployment of the SSR version to Firebase hosting requires special gymnastics and is not implemented.
-The contents of `dist/server` should be deployable to any web server and function correctly,
-but this has not been tested.
-
-## Accessibility
-
-Accessibility is not implemented fully in this version of the app.
-A more complete implementation would implement keyboard navigation as provided for in the CDK `a11y` library.
-In addition, items should be assigned "roles" and `aria-*` attributes.
-
-Bits and pieces of work-in-progress may be found in `app/sidenav`.
-
-## Miscellaneous
-
-1. The locked-version of `@angular-devkit/schematics` in `package.json` is to deal with a bug in `ng new pwa`. See https://github.com/angular/angular-cli/issues/11663 for more information.
-
-## Attributions
-
-Icons in `src/manifest.json` (`src/assets/icons`) from https://www.iconfinder.com/icons/44797/car_icon.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-      TODO: Write event list page.
     </div>
 
   </section>
