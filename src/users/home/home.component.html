@@ -1,0 +1,12 @@
+<!-- users/home/home.component.html: template for home screen. -->
+
+<main>
+
+  <h1>Home</h1>
+
+  <h2>Your bookmarks</h2>
+
+  <!-- BOOKMARKS -->
+  <bookmark-list [bookmarks]="bookmarks$ | async"></bookmark-list>
+
+</main>

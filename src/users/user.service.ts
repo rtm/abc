@@ -3,7 +3,6 @@
 // Handle user management, logging in, logging out.
 
 import {Injectable} from "@angular/core";
-import {Router} from "@angular/router";
 
 import {Observable} from "rxjs";
 import {filter, map} from "rxjs/operators";
@@ -24,12 +23,7 @@ export class UserService {
   // The authUI needed to put up the firebase auth UI.
   public authUI = new firebaseui.auth.AuthUI(firebase.auth());
 
-  constructor(private readonly angularFireAuth: AngularFireAuth, private readonly router: Router) {
-    // Jump to the login page if we are not logged in.
-    this.user$
-      .pipe(filter(user => !user))
-      .subscribe(() => this.router.navigate(["/user", "sign-in"]));
-  }
+  constructor(private readonly angularFireAuth: AngularFireAuth) {}
 
   // Convenience room to get current user, in the Angular auth sense.
   public get currentUser() {
@@ -83,15 +77,5 @@ export class UserService {
   // Not currently used.
   public isPendingRedirect() {
     return this.authUI.isPendingRedirect();
-  }
-
-  // "Continue as guest".
-  // The `user.isAnonymous` flag will be true in this case.
-  public async signInAnonymously() {
-    try {
-      return firebase.auth().signInAnonymously();
-    } catch (e) {
-      console.error("Anonymous sign-in failed", e);
-    }
   }
 }

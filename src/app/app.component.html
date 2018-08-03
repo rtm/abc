@@ -1,14 +1,21 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+<!-- app.component.html: template for top-level component, with side nav. -->
 
-<mat-toolbar>
-  <mat-toolbar-row>
-    <a target="_blank" href="http://numenware.com">Numenware</a>
-  </mat-toolbar-row>
-</mat-toolbar>
+<mat-sidenav-container (backdropClick)="uiService.maybeClose()">
 
-<router-outlet></router-outlet>
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [opened]="true"
+    disableClose="true"
+    app-background-color light
+    (click)="uiService.maybeClose()"
+    (openedChange)="onSidenavOpenedChange($event)"
+    >
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

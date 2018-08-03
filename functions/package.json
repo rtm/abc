@@ -1,0 +1,19 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "Cloud functions for ABC Racing app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@google-cloud/storage": "^1.7.0",
+    "child-process-promise": "^2.2.1",
+    "firebase-admin": "^5.13.1",
+    "firebase-functions": "^2.0.2",
+    "mkdirp": "^0.5.1",
+    "mkdirp-promise": "^5.0.1"
+  }
+}

@@ -1,0 +1,39 @@
+<!-- app/sidenav/sidenav.component.html: contents for sidenav -->
+
+<div style="height: 100vh; " flex vertical justify>
+
+  <div style="color: white; bottom-border: 1px black solid; " app-background-color thick padding>
+
+    <div bold text>{{name}}</div>
+
+    <!-- <ng-template #notLoggedIn> -->
+    <!--   You are not logged in. -->
+    <!-- </ng-template> -->
+
+  </div>
+
+  <mat-nav-list app-background-color-light>
+    <div flex vertical>
+      <a mat-list-item [routerLink]="['/racers', 'list']">
+        <span>Racers</span>
+      </a>
+
+      <a mat-list-item [routerLink]="['/events', 'list']">
+        <span>Events</span>
+      </a>
+
+      <a mat-list-item [routerLink]="['/users', 'home']">
+        <span>Home</span>
+      </a>
+
+      <a mat-list-item (click)="signOut()" [class.disabled]="!uid">
+        <span>Sign out</span>
+      </a>
+
+      <a mat-list-item (click)="signUp()" *ngIf="!uid">
+        <span>Sign up</span>
+      </a>
+    </div>
+  </mat-nav-list>
+
+</div>

@@ -37,8 +37,4 @@ export class SignInComponent {
       console.error("failed to initialize firebaseUI", e);
     }
   }
-
-  public onSignInAnonymously() {
-    return this.userService.signInAnonymously();
-  }
 }

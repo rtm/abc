@@ -8,11 +8,13 @@ import {ServiceWorkerModule} from "@angular/service-worker";
 // TODO: Consider a separate module only for Angular Material.
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import {MatListModule} from "@angular/material/list";
+import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatFormFieldModule} from "@angular/material/form-field";
 
 import {FlexLayoutModule} from "@angular/flex-layout";
 
@@ -24,10 +26,27 @@ import {AngularFireAuthModule} from "angularfire2/auth";
 
 import {AppComponent} from "./app.component";
 import {environment} from "../environments/environment";
-import { AppRoutingModule } from './/app-routing.module';
+import {AppRoutingModule} from ".//app-routing.module";
+
+// COMPONENTS
+import {BookmarkListComponent} from "../bookmarks/bookmark-list/bookmark-list.component";
+import {HomeComponent} from "../users/home/home.component";
+import {SignInComponent} from "../users/sign-in/sign-in.component";
+import {SidenavComponent} from "./sidenav/sidenav.component";
+
+// PROVIDERS
+import {UserService} from "../users/user.service";
+import {BookmarkService} from "../bookmarks/bookmark.service";
+import {UiService} from "./ui.service";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    BookmarkListComponent,
+    HomeComponent,
+    SidenavComponent,
+    SignInComponent,
+  ],
   imports: [
     //    BrowserModule,
     // If using SSR:
@@ -55,12 +74,16 @@ import { AppRoutingModule } from './/app-routing.module';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatTableModule,
     MatToolbarModule,
+    MatSidenavModule,
+
     ServiceWorkerModule.register("/ngsw-worker.js", {enabled: environment.production}),
+
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [BookmarkService, UiService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

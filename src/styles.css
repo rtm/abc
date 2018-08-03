@@ -2,3 +2,225 @@
 
 /* MATERIAL DESIGN */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Firebase UI CSS is imported via the `styles` property in `angular.json`. */
+@import "~firebaseui/dist/firebaseui.css";
+
+body {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  font-size: 14px;
+  height: 100%;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  /* Try to make Roboto look slightly less ugly. */
+  color: #333;
+  font-weight: 300;
+}
+
+html {
+  height: 100%;
+}
+
+/*****************************************************************
+ * PAGE LAYOUT
+ */
+
+/* The `main` element is used for all full-screen elements, and nothing else. */
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+main header {
+  font-weight: normal;
+  flex-shrink: 0;
+}
+
+/* The part of a page between the header and the bottom. */
+main section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;               /* Some things are positioned absolutely vis-a-vis the section. */
+}
+
+/* The `footer` element is used for (optional) stuff at the bottom of each full-screen display. */
+
+main footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 6px;
+  border-top: 1px solid #ddd;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Page header for each page, containing back arrow, page title, etc. */
+/* These are from the red app. They are not used as is. */
+.page-header, main > header {
+  /* align-items: center; */
+  /* background-color: #2980b9; */
+  /* color: #eee; */
+  /* display: flex; */
+  /* flex-grow: 0; */
+  /* flex-shrink: 0; */
+  /* font-size: 2em; */
+  /* height: 3rem; */
+  /* margin: 0; */
+  /* padding-left: 6px; */
+  /* padding-right: 6px; */
+}
+
+/*
+ *  This is the navigation icon, with the text underneath.
+ * Make sure the icon and the text are on top of each other.
+ */
+.header-nav,
+header > div:first-child           /* TODO: obsolete this */
+{
+  text-align: center;
+}
+
+.header-name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1000;             /* Avoid getting hidden by offline icons etc. */
+}
+
+/* MATERIAL DESIGN */
+.mat-card-actions button, [mat-button] {
+  text-transform: uppercase;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.mat-card > .mat-card-actions:last-child {
+  margin-bottom: -8px !important;
+}
+
+/* Default is 8px, which insets the text too much IMHO. */
+project-card .mat-card-header-text,
+unit-card .mat-card-header-text,
+room-card .mat-card-header-text {
+  margin: 0;
+}
+
+/* Scrolling */
+::-webkit-scrollbar {
+  width: 6px;  /* remove scrollbar space */
+  /* background: transparent;  /\* optional: just make scrollbar invisible *\/ */
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: grey;
+}
+
+/* Scroll bar thumb color. Set on individual pages. */
+/* ::-webkit-scrollbar-thumb { */
+/*   background: rgba(0, 76, 180, 0.3); */
+/* } */
+
+.disabled {
+  opacity: 0.2;
+}
+
+/* Each section (screen) can have some options. */
+.section-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+}
+
+.section-options > *{
+  margin-left: 6px;
+}
+
+/* DIALOG */
+mat-dialog-actions {
+  justify-content: space-between;
+}
+
+mat-dialog-actions button {
+  text-transform: uppercase;
+  padding: 0 8px !important;;
+
+  /* The idea is for the three less-used buttons to fit on the upper row. */
+  /* padding: 2px !important; */
+}
+
+/*
+ * We need enough space to show the picture, which is 320px wide.
+ * Give 6px padding, making the overall width 332px, which is set
+ * using the `width` property to the options passed when opening the dialog.
+ *
+ * Why are material styles taking precedence over these?
+ */
+.md-dialog-container, .mat-dialog-container {
+  padding: 6px !important;
+  max-width: none !important;
+}
+
+photo-display mat-dialog-content > :not(:last-child) {
+  margin-bottom: 12px;
+}
+
+/* MARKDOWN */
+markdown p { margin-top: 0; }
+
+/* GENERAL/UTILITY */
+.hide { display: none; }
+.centered-xy {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+ * Add a growable flex element at the beginning and/or the end.
+ * Yes, before and after pseudo-elements **do** work as flex items!
+ */
+.flex-before::before,
+.flex-after::after,
+.flex-before-after::before,
+.flex-before-after::after {
+  content: '';
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+/* COLORS */
+[app-foreground-color][light] { color: #aae4fe; }
+[app-background-color][light] { background-color: #aae4fe; }
+
+[app-foreground-color] { color: #03a9f4; }
+[app-background-color] { background-color: #03a9f4; }
