@@ -17,7 +17,7 @@ import {
 import {Subscription, Observable} from "rxjs";
 import {map} from "rxjs/operators";
 
-import * as firebase from "firebase";
+import * as firebase from "firebase/app";
 
 import {UserService} from "../../users/user.service";
 

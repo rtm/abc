@@ -6,7 +6,7 @@ import {Injectable} from "@angular/core";
 
 import {Observable} from "rxjs";
 import {filter, map} from "rxjs/operators";
-import * as firebase from "firebase";
+import * as firebase from "firebase/app";
 import * as firebaseui from "firebaseui";
 import {AngularFireAuth} from "angularfire2/auth";
 
